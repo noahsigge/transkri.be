@@ -1,0 +1,89 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Transkription
+    meta(name='viewport', content='initial-scale=1.0, width=device-width, \
+      height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    //link(rel='stylesheet', href='//cdn.jsdelivr.net/normalize/3.0.1/normalize.min.css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')    
+    script(src='jquery.min.js')
+    script(src='client.js')
+    script(src='socket.io/socket.io.js')
+    script (src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+
+
+  body
+    div#messages
+        - for(var i=0,ln=messages.length;i<ln;i++)   
+          div.new
+            b
+              .msg= messages[i].msg.substring(0, 1)
+            span
+              //.header.clearfix
+              //  .when= new Date(messages[i].when).toString().substr(0, 24)
+              span.msg= messages[i].msg.substring(1)
+              //.newMessage(messages[i].msg)
+            
+  div#dropUp
+    p#open 
+      img(src="../images/up.png" class="on")
+      img(src="../images/down.png" class="off")
+      |  INFO
+    div#dashboard
+      div.info
+        | Curlew River (Op. 71) von Benjamin Britten
+        //- br
+        //- | Libretto von William Plomer
+        br
+        br
+      div.new.block
+        img(src="../images/abt.png" class="iconInfo")
+        span Nur Gott kennt den rechten Weg. Gebet und Gottesfurcht sind seine höchsten Gebote.  Mit seinen Brüdern pilgert auch er an diesem Tag zu der heiligen Stätte, die Kranke zu heilen vermag. Doch diese Wendung hatte auch er nicht ahnen können.
+        br
+      div.new.block
+        img(src="../images/faehrmann.png" class="iconInfo")
+        span Tag ein, Tag aus, bei jedem Wetter steht er am Curlew River und bringt die Menschen heil über den Fluss. Er kennt jeden Schilfhalm und jede Geschichte rund um sein Marschland. Auch er wird der verrückten Frau begegnen. Vielleicht kann er ihr helfen?
+        br
+      div.new.block
+        img(src="../images/madwoman.png" class="iconInfo")
+        span Sie irrt durch die Lande, weit in den Osten. Den Schreien der Krähen hinterher. Von allen wird Sie ausgelacht und für verrückt erklärt. Doch schaut man in ihr Inneres zeigt sich der tiefe Kummer, der sie plagt. Wird Ihre Suche je ein Ende finden?
+        br
+      div.new.block
+        img(src="../images/reisender.png" class="iconInfo")
+        span Auf seiner nicht enden wollenden, zehrenden Reise in den Norden, kreuzt sein Weg den Curlew River.  Ungewollt wird er Teil einer großen Geschichte und Zeuge von Gottes Gnade.
+        br
+      div.new.block
+        img(src="../images/geist.png" class="iconInfo")
+        span ••••• •••• •• ••• ••••• ••• •••••••• •• ••••••• •••• •• ••• ••••• ••• •••••••• •• ••••••• •••• •• ••• ••••• ••• •••••••• •• ••• ••••••• ••••• ••• ••••••• •••• •••• •••••••••• •• •• •••••• •• •••••••• ••••••
+      div.info
+          br
+          | transkri.be ist eine App für Echtzeit-Übersetzungen
+          br
+          br
+          | Design und Entwicklung: Noah Sigge
+          br
+          | Freie Übersetzung: Anne Jahnke
+          br
+          br
+          b.imprint 
+            | Impressum & Kontakt
+          div 
+            | transkri.be
+            br
+            | Noah Sigge
+            br
+            | Körnerstr. 54
+            br
+            | 04107 Leipzig
+            br
+            | mail: noah.sigge@web.de
+            br
+            | mobil: 0151 schreibeinemail 
+    //- form(id='form')
+    //-   input(id='msg', autocomplete='off', autofocus)
+    //-   button(type='submit') Send
+    script(src='//cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/client.js')

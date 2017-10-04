@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Transkription
+    meta(name='viewport', content='initial-scale=1.0, width=device-width, \
+      height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    //link(rel='stylesheet', href='//cdn.jsdelivr.net/normalize/3.0.1/normalize.min.css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')    
+    script(src='jquery.min.js')
+    script(src='client.js')
+    script(src='socket.io/socket.io.js')
+    script (src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+
+
+    body
+      div#messages
+          - for(var i=0,ln=messages.length;i<ln;i++)   
+            div.new
+              b
+                .msg= messages[i].msg.substring(0, 1)
+              span
+                //.header.clearfix
+                //  .when= new Date(messages[i].when).toString().substr(0, 24)
+                span.msg= messages[i].msg.substring(1)
+                //.newMessage(messages[i].msg)
+              
+    
+    form(id='form')
+      input(id='msg', autocomplete='off', autofocus)
+      button(type='submit') Send
+    script(src='//cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/client.js')
